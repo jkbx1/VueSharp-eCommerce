@@ -15,6 +15,7 @@ appsettings.Production.json
 # --- Build Outputs ---
 [Bb]in/
 [Oo]bj/
+out/
 temp-build/
 
 # --- MSBuild / Build Logs & Diagnostics ---
