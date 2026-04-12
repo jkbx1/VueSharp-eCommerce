@@ -1,0 +1,45 @@
+# ============================================================
+# VueSharp Frontend — .gitignore
+# ============================================================
+
+# --- SECRETS & ENVIRONMENT FILES — Never commit ---
+.env
+.env.local
+.env.production
+.env.*.local
+
+# --- Dependencies ---
+node_modules/
+
+# --- Build Outputs ---
+dist/
+dist-ssr/
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- OS Artifacts ---
+.DS_Store
+Thumbs.db
+
+# --- IDE / Editor ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Internal Design / Planning Files ---
+DESIGN_GUIDE.md
+*.design.md
+UI_Design.md
+design.md

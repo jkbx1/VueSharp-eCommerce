@@ -1,0 +1,45 @@
+# ============================================================
+# VueSharp Backend — .gitignore
+# ============================================================
+
+# --- SECRETS & ENVIRONMENT-SPECIFIC CONFIG — Never commit ---
+appsettings.Development.json
+appsettings.Production.json
+# NOTE: Only appsettings.json (containing "PLEASE_SET_IN_ENV" placeholders) is committed.
+
+# --- SQLite Database Files ---
+*.db
+*.db-shm
+*.db-wal
+
+# --- Build Outputs ---
+[Bb]in/
+[Oo]bj/
+temp-build/
+
+# --- MSBuild / Build Logs & Diagnostics ---
+*.log
+msbuild*.log
+build.txt
+build_errors.txt
+build_full_output.txt
+build_output.txt
+update_error.txt
+migration_errors.txt
+backend_error.log
+errors.txt
+
+# --- Scratch / Temporary Files ---
+scratch_test.js
+*.tmp
+
+# --- IDE / Editor ---
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+*.userprefs

@@ -1,0 +1,21 @@
+# ============================================================
+# VueSharp Root — .gitignore
+# ============================================================
+
+# --- Internal Design & Planning Documentation ---
+# Block all markdown files by default except the official README.
+*.md
+!README.md
+
+# --- OS Artifacts ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor ---
+.vscode/
+.idea/
+
+# --- Solution User Files ---
+*.suo
+*.user
