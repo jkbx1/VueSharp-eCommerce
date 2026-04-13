@@ -59,8 +59,8 @@ const cartStore = useCartStore();
   pointer-events: none;
   border-radius: 999px;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur, 12px)) saturate(300%);
   -webkit-backdrop-filter: blur(var(--universal-blur, 12px)) saturate(300%);
+  backdrop-filter: blur(var(--universal-blur, 12px)) saturate(300%);
 }
 
 .toast-content {

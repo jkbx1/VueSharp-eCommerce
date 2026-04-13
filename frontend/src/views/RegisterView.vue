@@ -210,6 +210,7 @@ const handleRegister = async () => {
   background: rgba(255, 50, 50, 0.06);
   border: 1px solid rgba(255, 50, 50, 0.2);
   border-radius: 10px;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
@@ -252,8 +253,8 @@ const handleRegister = async () => {
 
 .glass-form {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 40px 30px;

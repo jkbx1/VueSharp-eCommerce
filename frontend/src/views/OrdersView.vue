@@ -175,8 +175,8 @@ onMounted(() => {
   justify-content: center;
   padding: 60px 20px;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   text-align: center;
@@ -220,8 +220,8 @@ onMounted(() => {
 
 .order-card {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   overflow: hidden;

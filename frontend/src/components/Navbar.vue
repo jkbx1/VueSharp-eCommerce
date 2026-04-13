@@ -999,8 +999,8 @@ onMounted(() => {
 /* Apply the pill visuals to the pseudo-element */
 .navbar.scrolled-pill::before {
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur)) saturate(150%);
   -webkit-backdrop-filter: blur(var(--universal-blur)) saturate(150%);
+  backdrop-filter: blur(var(--universal-blur)) saturate(150%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
@@ -1042,8 +1042,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition:
@@ -1168,8 +1168,8 @@ onMounted(() => {
 /* Category Specifics */
 .category-unit {
   background: transparent;
-  backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border-color: transparent;
   width: 80px;
 }
@@ -1177,8 +1177,8 @@ onMounted(() => {
 .category-unit.expanded {
   width: 220px;
   background: var(--universal-tint) !important;
-  backdrop-filter: blur(var(--universal-blur)) !important;
   -webkit-backdrop-filter: blur(var(--universal-blur)) !important;
+  backdrop-filter: blur(var(--universal-blur)) !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
@@ -1493,8 +1493,8 @@ onMounted(() => {
 
 .icon-btn {
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   color: #ccc;
   border: 1px solid rgba(255, 255, 255, 0.25);
   width: 48px;
@@ -1667,8 +1667,8 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   max-height: 48px;
@@ -1714,6 +1714,7 @@ onMounted(() => {
 
 .mobile-category-toggle {
   background: var(--universal-tint);
+  -webkit-backdrop-filter: blur(var(--universal-blur));
   backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;

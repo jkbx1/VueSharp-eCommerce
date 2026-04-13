@@ -190,8 +190,8 @@ const handleAddClick = () => {
   align-items: center;
   justify-content: center;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -242,6 +242,7 @@ const handleAddClick = () => {
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 0.4rem 1rem;
   border-radius: 20px;
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 

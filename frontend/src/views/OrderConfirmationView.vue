@@ -59,8 +59,8 @@ const orderEmail = route.query.email || '';
 
 .confirmation-glass {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 60px 40px;

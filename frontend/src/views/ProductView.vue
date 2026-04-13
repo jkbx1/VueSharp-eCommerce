@@ -436,8 +436,8 @@ watch(
 /* Details Section */
 .details-glass {
   background: color-mix(in srgb, var(--universal-tint), black 60%);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 2.5rem;

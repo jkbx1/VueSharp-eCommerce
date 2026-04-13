@@ -195,6 +195,7 @@ watch(
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 10000;
   display: flex;
@@ -205,6 +206,7 @@ watch(
 
 .modal-content {
   background: rgba(20, 20, 20, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;

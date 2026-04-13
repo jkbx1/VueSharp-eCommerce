@@ -64,8 +64,8 @@ onUnmounted(() => {
   gap: 0.5rem;
 
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur, 8px));
   -webkit-backdrop-filter: blur(var(--universal-blur, 8px));
+  backdrop-filter: blur(var(--universal-blur, 8px));
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 40px;
 

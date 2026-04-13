@@ -1502,8 +1502,8 @@ onMounted(() => {
   bottom: 0;
   margin-top: 1.5rem;
   background: var(--universal-tint);
-  backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -1788,8 +1788,8 @@ onMounted(() => {
   padding: 0.4rem 0.9rem;
   font-size: 0.75rem;
   font-weight: 500;
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   transition: all 0.2s ease;
 }
 

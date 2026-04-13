@@ -399,6 +399,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   padding: 20px;
 }
@@ -406,6 +407,7 @@ onUnmounted(() => {
 .error-glass {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   padding: 40px;
   border-radius: 24px;
@@ -531,8 +533,8 @@ onUnmounted(() => {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4) !important;
-  backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -722,8 +724,8 @@ onUnmounted(() => {
   transform: translateY(-50%);
   z-index: 10;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   width: 54px;
