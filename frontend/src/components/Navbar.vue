@@ -182,7 +182,42 @@ onMounted(() => {
     <div class="navbar" :class="{ 'scrolled-pill': isScrolled }">
       <!-- Brand Logo -->
       <div class="brand">
-        <router-link to="/">VueSharp</router-link>
+        <router-link to="/" class="brand-link">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="brand-logo"
+          >
+            <defs>
+              <linearGradient
+                id="navBrandGradient"
+                x1="0"
+                y1="0"
+                x2="40"
+                y2="40"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="white" stop-opacity="0.6" />
+                <stop offset="1" stop-color="white" stop-opacity="0.2" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M10 5L20 32L30 5H35L20 37L5 5H10Z"
+              fill="white"
+              fill-opacity="0.1"
+            />
+            <path
+              d="M10 5L20 32L30 5H12L20 28L28 5H10Z"
+              fill="url(#navBrandGradient)"
+              stroke="rgba(255,255,255,0.4)"
+              stroke-width="0.8"
+            />
+          </svg>
+          <span class="brand-text">VueSharp</span>
+        </router-link>
       </div>
 
       <!-- Main Navigation Links -->
@@ -1012,19 +1047,39 @@ onMounted(() => {
   align-items: center;
 }
 
-.brand a {
+.brand a.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-logo {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-text {
   font-family: "Playfair Display", serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
-  text-decoration: none;
   letter-spacing: -0.5px;
-  transition: font-size 0.5s ease;
   line-height: 1;
+  transition: opacity 0.4s ease, font-size 0.4s ease;
 }
 
-.scrolled-pill .brand a {
+.brand-link:hover .brand-logo {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.scrolled-pill .brand-text {
   font-size: 1.3rem;
+}
+
+.scrolled-pill .brand-logo {
+  transform: scale(0.9);
 }
 
 /* Nav Links */
@@ -1273,8 +1328,8 @@ onMounted(() => {
   top: 0;
   right: 0;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   width: 260px;
@@ -1591,8 +1646,12 @@ onMounted(() => {
     position: static;
   }
 
-  .navbar-pill {
+  .navbar {
     position: relative; 
+  }
+
+  .brand-text {
+    display: none;
   }
 
   .icon-unit.pos-menu:not(.expanded) {
@@ -1613,6 +1672,12 @@ onMounted(() => {
 
   .expanded-title {
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-text {
+    display: none;
   }
 }
 

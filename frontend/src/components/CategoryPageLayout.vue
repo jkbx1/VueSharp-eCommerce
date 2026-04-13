@@ -1150,8 +1150,8 @@ onMounted(() => {
   padding: 0.75rem 1.25rem;
 
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 40px;
 
@@ -1171,8 +1171,8 @@ onMounted(() => {
   padding: 100% 1.25rem;
   border-radius: 0;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border-color: transparent;
 }
 
@@ -1406,8 +1406,8 @@ onMounted(() => {
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition:
@@ -1426,8 +1426,8 @@ onMounted(() => {
     transform: translateX(-100%);
     opacity: 0;
     background: rgba(13, 13, 15, 0.8);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     overflow-y: hidden;
     padding: 0;
     display: flex;

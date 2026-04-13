@@ -21,19 +21,23 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ── JWT Authentication ──────────────────────────────────────────────────────
-// The signing key MUST be supplied via the JWT_SECRET_KEY environment variable.
-// It must be at least 32 characters long for HMAC-SHA256 security.
+// Key resolution order (most to least specific):
+//   1. builder.Configuration["JWT_SECRET_KEY"]  ← .NET User Secrets (local dev)
+//   2. Environment.GetEnvironmentVariable(...)   ← OS env / Render secret
+//   3. builder.Configuration["Jwt:Key"]          ← appsettings fallback (never a real secret)
+// The key must be at least 32 characters long for HMAC-SHA256 security.
 // The app will refuse to start if the key is missing or too short.
-var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+var jwtKey = builder.Configuration["JWT_SECRET_KEY"]
+    ?? Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
     ?? builder.Configuration["Jwt:Key"];
 
 if (string.IsNullOrWhiteSpace(jwtKey) || jwtKey.StartsWith("PLEASE_SET") || jwtKey.Length < 32)
 {
     throw new InvalidOperationException(
-        "STARTUP FAILURE: JWT_SECRET_KEY environment variable is missing, is a placeholder, " +
+        "STARTUP FAILURE: JWT_SECRET_KEY is missing, is a placeholder, " +
         "or is shorter than 32 characters. " +
-        "Set it via: $env:JWT_SECRET_KEY = 'your-secure-random-key-here' (PowerShell) " +
-        "or export JWT_SECRET_KEY='...' (Bash).");
+        "Local dev  → dotnet user-secrets set \"JWT_SECRET_KEY\" \"your-key\" " +
+        "Production → set the JWT_SECRET_KEY secret on Render.");
 }
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -117,11 +121,41 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Apply migrations and seed data on startup
+// Apply migrations and seed data on startup.
+// In Development the migration is best-effort: if the database is unreachable
+// (e.g. Supabase pooler is sleeping or local internet is flaky) we log the
+// error and continue so the API can still serve non-DB routes.
+// In Production the exception propagates and prevents a half-broken deployment.
 using (var scope = app.Services.CreateScope())
 {
+    var logger = scope.ServiceProvider
+        .GetRequiredService<ILoggerFactory>()
+        .CreateLogger("Startup");
+
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    db.Database.Migrate();
+
+    if (app.Environment.IsDevelopment())
+    {
+        try
+        {
+            db.Database.Migrate();
+            logger.LogInformation("Database migration applied successfully.");
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(
+                ex,
+                "[DEV] Database migration failed — the API will start anyway. " +
+                "Check your connection string or Supabase pooler status.");
+        }
+    }
+    else
+    {
+        // Production: let any migration failure surface immediately so the
+        // deployment is rolled back rather than running with a stale schema.
+        db.Database.Migrate();
+        logger.LogInformation("Database migration applied successfully.");
+    }
 }
 
 app.Run();

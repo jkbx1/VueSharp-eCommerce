@@ -212,9 +212,23 @@ watch(
   border-radius: 24px;
   width: 100%;
   max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .close-btn {
@@ -249,9 +263,19 @@ watch(
 @media (max-width: 650px) {
   .modal-body {
     grid-template-columns: 1fr;
+    min-height: unset;
   }
   .product-preview {
-    height: 300px;
+    height: 240px;
+  }
+  .product-info {
+    padding: 24px;
+  }
+  .price-row {
+    margin-bottom: 20px;
+  }
+  .product-name {
+    font-size: 1.5rem;
   }
 }
 

@@ -223,8 +223,8 @@ const handleSubscribe = () => {
   margin-bottom: 80px;
   gap: 40px;
   background: var(--universal-tint);
-  backdrop-filter: blur(var(--universal-blur));
   -webkit-backdrop-filter: blur(var(--universal-blur));
+  backdrop-filter: blur(var(--universal-blur));
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
 }
