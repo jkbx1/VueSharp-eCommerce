@@ -1067,7 +1067,9 @@ onMounted(() => {
   color: #fff;
   letter-spacing: -0.5px;
   line-height: 1;
-  transition: opacity 0.4s ease, font-size 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    font-size 0.4s ease;
 }
 
 .brand-link:hover .brand-logo {
@@ -1540,7 +1542,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 4px;
+  padding: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
   pointer-events: none;
@@ -1600,7 +1602,7 @@ onMounted(() => {
     min-width: 80px;
     z-index: 10;
   }
-  
+
   .category-unit {
     position: absolute;
     top: 0;
@@ -1647,7 +1649,7 @@ onMounted(() => {
   }
 
   .navbar {
-    position: relative; 
+    position: relative;
   }
 
   .brand-text {
@@ -1658,10 +1660,10 @@ onMounted(() => {
     right: 0px;
   }
   .icon-unit.pos-account:not(.expanded) {
-    right: 56px; 
+    right: 56px;
   }
   .icon-unit.pos-bag:not(.expanded) {
-    right: 112px; 
+    right: 112px;
   }
 
   .icon-unit.expanded {
@@ -1694,7 +1696,7 @@ onMounted(() => {
 }
 
 .mobile-toggle-btn {
-  display: none; 
+  display: none;
 }
 
 @media (max-width: 1150px) {
@@ -1774,7 +1776,7 @@ onMounted(() => {
   font-size: 1.2rem;
   font-weight: 500;
   text-decoration: none;
-  flex: 1; 
+  flex: 1;
 }
 
 .mobile-category-toggle {
@@ -1834,7 +1836,7 @@ onMounted(() => {
     max-height 0.5s cubic-bezier(0.7, 1, 0.5, 1),
     opacity 0.5s ease,
     padding 0.5s ease;
-  max-height: 600px; 
+  max-height: 600px;
   overflow: hidden;
 }
 

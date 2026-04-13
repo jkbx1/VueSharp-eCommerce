@@ -338,25 +338,15 @@ const handleCheckout = () => {
   right: 8px;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   padding: 4px;
-  transition: color 0.2s;
-  opacity: 0; 
-}
-
-.cart-item:hover .item-remove-btn {
-  opacity: 1;
-}
-
-@media (hover: none) {
-  .item-remove-btn {
-    opacity: 0.8;
-  }
+  transition: all 0.2s;
 }
 
 .item-remove-btn:hover {
   color: #ff4d4d;
+  transform: scale(1.1);
 }
 
 .cart-footer {

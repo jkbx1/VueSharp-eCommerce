@@ -7,11 +7,18 @@
  *   - Local dev:  .env              → http://localhost:5012
  *   - Production: .env.production   → https://api.yourdomain.com
  */
-export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// Get the raw value from environment variables
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
 
-if (!BASE_URL) {
-  console.error(
-    '[VueSharp] VITE_API_BASE_URL is not defined. ' +
-    'Make sure a .env or .env.production file exists with this variable set.'
+// Sanitize: Remove trailing slash to prevent double-slashes in requests (e.g., https://api.com//api/...)
+export const BASE_URL = rawBaseUrl.replace(/\/$/, '');
+
+if (!BASE_URL && import.meta.env.PROD) {
+  console.warn(
+    '[VueSharp] WARNING: VITE_API_BASE_URL is not defined in production. ' +
+    'API requests will fall back to the current domain, which likely won\'t work ' +
+    'unless you have a proxy configured on your host (e.g. Netlify/Vercel rewrites).'
   );
+} else if (!BASE_URL) {
+  console.info('[VueSharp] VITE_API_BASE_URL is empty; using relative paths for local development proxy.');
 }

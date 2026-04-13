@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { BASE_URL } from '../api/client.js';
 
 const orderId = ref('');
 const email = ref('');
@@ -13,7 +14,7 @@ const trackOrder = async () => {
     order.value = null;
 
     try {
-        const response = await fetch(`/api/orders/track?orderId=${orderId.value}&email=${encodeURIComponent(email.value)}`);
+        const response = await fetch(`${BASE_URL}/api/orders/track?orderId=${orderId.value}&email=${encodeURIComponent(email.value)}`);
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
             throw new Error(errorData.message || 'Order not found. Please check your details.');
