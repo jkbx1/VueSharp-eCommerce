@@ -43,6 +43,13 @@ const handleSubscribe = () => {
     "success",
   );
 };
+
+const handleSocialClick = (social, event) => {
+  if (!social.isPrimary) {
+    event.preventDefault();
+    handleDemoClick(social.name);
+  }
+};
 </script>
 
 <template>
@@ -194,6 +201,29 @@ const handleSubscribe = () => {
           <div class="payment-dot"></div>
         </div>
       </div>
+
+      <!-- Developer Bar -->
+      <div class="developer-bar">
+        <p>
+          Crafted with precision by
+          <span class="dev-name">Jakub Barszczak</span>. Explore my
+          <a
+            href="https://jakubbarszczak.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dev-link"
+            >Portfolio</a
+          >
+          or view the source on
+          <a
+            href="https://github.com/jkbx1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dev-link"
+            >GitHub</a
+          >.
+        </p>
+      </div>
     </div>
   </footer>
 </template>
@@ -335,6 +365,32 @@ const handleSubscribe = () => {
   transform: translateY(-3px);
 }
 
+.social-icon.primary-link {
+  color: var(--accent);
+  opacity: 1;
+  position: relative;
+}
+
+.social-icon.primary-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.15;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon.primary-link:hover::after {
+  opacity: 0.3;
+}
+
 .footer-col h4 {
   font-size: 14px;
   text-transform: uppercase;
@@ -364,6 +420,55 @@ const handleSubscribe = () => {
   color: var(--accent);
   opacity: 1;
   padding-left: 5px;
+}
+
+/* Developer Bar */
+.developer-bar {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.developer-bar p {
+  font-size: 14px;
+  color: var(--text-main);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+.dev-name {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.dev-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.dev-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.dev-link:hover {
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(130, 102, 68, 0.4);
+}
+
+.dev-link:hover::after {
+  width: 100%;
 }
 
 /* Bottom Bar */
